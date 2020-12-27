@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<br />
+<form method="POST" action="/saveother">
+<table>
+<tr><td><b>MQTT broker settings</b></td></tr>
+
+<tr><td>host:port <small>or</small> ip:port<br />
+<input type="text" name="hostport" maxlength="127" pattern=".*:[0-9]{1,5}$" value="###HOSTPORT###"></td></tr>
+<tr><td><br />username:password<br />
+<input type="text" name="userpass" maxlength="63" value="###USERPASS###"></td></tr>
+<tr><td><br />MQTT topic prefix<br />
+<input type="text" name="topicbase" maxlength="256" value="###TOPICBASE###"></td></tr>
+<tr><td><hr /></td></tr>
+
+<tr><td>Own hostname for DHCP<br />
+<input type="text" name="myhostname" maxlength="24" value="###MYHOSTNAME###"></td></tr>
+
+<tr><td><br />NTP server name or ip<br />
+<input type="text" name="ntpserver" maxlength="64" value="###NTPSERVER###"></td></tr>
+
+<tr><td><hr /></td></tr>
+
+</table>
+<br />
+<table>
+<tr><td class="even"><input type="submit" value="save"></td>
+<td class="even"><a class="fakebutton" href="./">cancel</a></td></tr>
+
+</table>
+</form>
+</body>
+</html>
+
