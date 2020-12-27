@@ -1,0 +1,78 @@
+DIY Kyoto Wattson serial protocol - http://www.diykyoto.com/
+
+Mikko Pikarinen, 23.1.2011
+
+NOTE: The protocol has been found out by reverse engineering, so this 
+document is not complete and it may contain errors.
+
+
+The DIY Kyoto Wattson power meter acts as a USB serial converter, so one 
+can communicate with it like with any serial device. The settings for 
+serial port are 19200,8N1.
+
+The protocol consists from one line commands and responses. Every 
+command begins with characters "now" and is followed by one char for 
+command and with some commands extra parameters. If the command char is 
+in upper case, it means write eg. when syncing the clock. A command ends 
+always with carriage return \r (ascii 13). The response begins with the 
+command letter and ends with two carriage returns. Eg. command "nowd\r" 
+is for asking the count of stored days and the response may be eg. 
+"d02\r\r".
+
+DANGER: some commands (eg. "nowo") may brick the device, and it must be 
+reset by removing the battery.
+
+The known commands are:
+
+  nowa - Possibly the long time average watts in dec. Not confirmed.
+  nowd - Get number of days of data stored except the day going on.
+          The response is "dNN" where NN is stored days count.
+  nowe - Erase all stored power data except the current day from unit.
+         It may be needed that this command is sent as "nowE"
+  nowl - Get stored power readings. See below.
+  nowp - Get current power usage 
+          The response is "pXXXX" where XXXX is watts in hex
+  nowr - Possibly the stored elecricity price rates
+  nows - Get unit serial number
+          The response is "sNNNNNN" where NNNNNN is dec numerals
+  nowt - Get/set unit date/time (setting may need nowT)
+          The format is: "YY/mm/dd HH:MM:SS"
+          eg. "nowT11/01/23 13:37:00" is confirmed to work.
+  nowv - Possibly the firmware version. My unit says "vW010701CLK"
+
+Some other commands (b,c,f,g,i,j,k,q,w,x) work too, but they give 
+responses of 1-12 numbers that don't ever change and I haven't guessed 
+what they mean. The command "nowy" answers always just "y".
+
+The nowl command:
+
+The "nowl"-command is for downloading the stored power averages. Wattson 
+stores average power usage every 5 minutes. The values are stored in day 
+slots which all are divided to 12 two-hour slots.
+
+The number of stored days can be retrieved by command "nowd". The response
+is stored days count eg. "d02" if two days before today has been stored.
+The oldest dayslot is 01, the next 02 etc. so today√'s slot is the response
+from nowd command +1. In the example "d02" today is slot 03.
+
+Every day contains 12 two-hour slots as said before. The first slot for 
+hours 00 and 01 is "01" and therefore slot for 8pm to 10pm is 11. 
+
+The format for command "nowl" contains always the dayslot and the 
+hourslot. Eg. if you want to download the first 2-hour slot for today 
+and you got "d02" from the "nowd" command, send "nowl0301". The response 
+is one line beginning with letter "l" and containing 5min averages in 
+watts in hexadecimal, fields separated by commas and in the end there is 
+a 2-byte checksum and of course the carriage return. I haven't tried to
+find out the algorithm for the checksum.
+
+The row may be eg: (it is not really wrapped, it is one 123 byte line)
+
+l164A,1231,1436,1525,1781,1BEA,16B0,15DD,10E1,10C8,115F,1386,1472,
+12B0,1072,12E2,16D3,115F,141B,FFFE,FFFF,FFFF,FFFF,FFFF,CC
+
+The current 5min timeslot contains "FFFE" and the timeslots which are in 
+the future contain "FFFF". From this slot you see, that in the first 5 
+minutes of that time the average power usage was 0x164A watts which is 
+5706 W in decimal.
+
