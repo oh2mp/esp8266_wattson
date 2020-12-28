@@ -1,6 +1,6 @@
 # ESP8266 Wattson hardware hacking and the circuit
 
-Wattson contains an USB to serial FT232RL. We want to bypass it and talk directly to the device's 
+Wattson has a FT232RL USB to serial chip. We want to bypass it and talk directly to the device's 
 internal 3.3V TTL serial line. To connect the ESP8266 to Wattson's internal serial line, the soldering 
 points are in the photo below.
 
