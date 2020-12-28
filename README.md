@@ -10,7 +10,7 @@ but I got an idea that it should use just ESP8266 and MQTT. The graph could be d
 
 The device has a Mini-USB connector and looks as a generic USB serial port with 19200 8N1 to the computer.
 I thought that the ESP could be connected directly to the serial line of the device "after" the USB circuit.
-That was a quite easy hack. See [Hardware.md](Hardware.md).
+That was a quite easy hack. See __[Hardware.md](Hardware.md)__.
 
 The sketch sends the current power consumption with MQTT every 3 seconds. It also keeps it internal clock
 in UTC with NTP. The MQTT packet is a JSON like this example:
@@ -30,3 +30,18 @@ how to configure Mosquitto, InfluxDB and Telegraf.
 -----------
 
 ## Portal mode
+
+This contains a quite similar portal as many other of my ESP sketches. If the GPIO14 is grounded, the ESP 
+switches to the portal mode. Connect to WiFi __ESP8266 Wattson__, accept that there's no internet 
+connection and take your browser to `http://192.168.4.1/`
+
+The portal mode has a timeout. The unit will reboot after 2 minutes of inactivity. There's almost no 
+sanity checks for the data sent from the forms. This is not a public web service and if you want to mess 
+up your board or try to make a denial of service using eg. buffer overflows, feel free to do so.
+
+### Sample screenshots from the portal
+
+![Wifi config](s/wifi.jpg)
+![Other config](s/other.jpg)
+
+------
