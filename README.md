@@ -29,6 +29,10 @@ and the serial number is s123456, the MQTT topic will be __wattson/s123456__
 There you can find also an [example](https://github.com/oh2mp/esp32_ble2mqtt/blob/main/CONFIG_EXAMPLES.md) 
 how to configure Mosquitto, InfluxDB and Telegraf.
 
+You will need also the 
+[Arduino ESP8266 filesystem uploader](https://github.com/esp8266/arduino-esp8266fs-plugin)
+and upload the html and css files in data directory to SPIFFS.
+
 -----------
 
 ## Portal mode
