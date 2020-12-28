@@ -25,3 +25,7 @@ The internet is full of documentation how to make ESP8266 connections like neede
 programming circuit etc. so I will not repeat that information here.
 
 ----------
+
+## Powering the ESP8266
+
+![wattson_board.jpg](i/wattson_board.jpg)
