@@ -15,10 +15,9 @@ line. It's sensed from the USB connector if there's +5V DC or not. Near to the c
 transistor, where +5V can be taken and connected to the USB port tap to fake the connected USB. I soldered
 a 1N4148 diode there in case the USB will be used some day. Then it will not feed the emitter of the transistor.
 
-Connect also a push button between ESP's ground and GPIO14. It starts the portal mode.
+Connect also a push button between ESP's ground and GPIO14. It starts the portal mode. You can also 
+connect an optional LED to GPIO16. It flashes always when a MQTT packet is sent. In portal mode it's 
+blinking.
 
-You can also connect an optional LED to GPIO16. It flashes always when a MQTT packet is sent. In portal
-mode it's blinking.
-
-The internet is full of documentation how to make ESP8266 connections like pullup resistors etc. so I will
-not tell them here. 
+The internet is full of documentation how to make ESP8266 connections like needed pullup resistors etc. 
+so I will not repeat that information here.
