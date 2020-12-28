@@ -2,6 +2,8 @@
 
 __ESP8266 based MQTT gateway for DIY Kyoto Wattson__
 
+![Wattson](i/wattson400x240.jpg)
+
 [DIY Kyoto Wattson](http://www.diykyoto.com/uk/aboutus/wattson-classic) is a wireless three phase Electricity 
 monitor that came to market about 2010. The manufacturer did not provide other software than "Holmes" for 
 Windows. I reverse engineered the serial protocol in 2011 and wrote a 
