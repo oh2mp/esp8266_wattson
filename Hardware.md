@@ -37,3 +37,4 @@ I used a 3.3V buck converter to take power for my generic ESP8266 module. There'
 the right side of the case. The buck converter and ESP are mounted just with two sided tape.
 
 ![wattson_and_esp_small.jpg](i/wattson_and_esp_small.jpg)
+
