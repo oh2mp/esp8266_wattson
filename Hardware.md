@@ -28,4 +28,11 @@ programming circuit etc. so I will not repeat that information here.
 
 ## Powering the ESP8266
 
+The device is powered with 9V AC adapter. There are two extra soldering points next to where it's connected
+so it's almost too easy to take power there. See red arrow on the image.
+
 ![wattson_board.jpg](i/wattson_board.jpg)
+
+I used a 3.3V buck converter to take power for my generic ESP8266 module. There's plenty of space on
+the right side of the case. The buck converter and ESP are mounted just with two sided tape.
+
