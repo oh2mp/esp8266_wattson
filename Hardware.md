@@ -1,6 +1,8 @@
 # ESP8266 Wattson hardware hacking and the circuit
 
-To connect the ESP8266 to Wattson's internal serial line, the soldering points are in the photo below.
+Wattson contains an USB to serial FT232RL. We want to bypass it and talk directly to the device's 
+internal 3.3V TTL serial line. To connect the ESP8266 to Wattson's internal serial line, the soldering 
+points are in the photo below.
 
 ![wattson_board_under2_small.jpg](i/wattson_board_under2_small.jpg)
 
@@ -19,5 +21,7 @@ Connect also a push button between ESP's ground and GPIO14. It starts the portal
 connect an optional LED to GPIO16. It flashes always when a MQTT packet is sent. In portal mode it's 
 blinking.
 
-The internet is full of documentation how to make ESP8266 connections like needed pullup resistors etc. 
-so I will not repeat that information here.
+The internet is full of documentation how to make ESP8266 connections like needed pullup resistors,
+programming circuit etc. so I will not repeat that information here.
+
+----------
