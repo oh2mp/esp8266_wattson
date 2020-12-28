@@ -2,7 +2,7 @@
 
 Wattson has a FT232RL USB to serial chip. We want to bypass it and talk directly to the device's 
 internal 3.3V TTL serial line. To connect the ESP8266 to Wattson's internal serial line, the soldering 
-points are in the photo below.
+points and other needed modifications are in the photo below.
 
 ![wattson_board_under2_small.jpg](i/wattson_board_under2_small.jpg)
 
