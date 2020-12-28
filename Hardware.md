@@ -19,3 +19,6 @@ Connect also a push button between ESP's ground and GPIO14. It starts the portal
 
 You can also connect an optional LED to GPIO16. It flashes always when a MQTT packet is sent. In portal
 mode it's blinking.
+
+The internet is full of documentation how to make ESP8266 connections like pullup resistors etc. so I will
+not tell them here. 
