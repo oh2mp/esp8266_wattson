@@ -17,15 +17,16 @@
 /* ------------------------------------------------------------------------------- */
 // Pin vs GPIO mappings
 #define PIN_D5  14 
+#define PIN_D6  12
 #define PIN_D7  13
 #define PIN_D8  15
 
-#define RXP PIN_D7
-#define TXP PIN_D8
+#define RXP PIN_D7   // in case you use NodeMCU. 
+#define TXP PIN_D6
 
-// These are onboard leds in NodeMCU / ESP12 devboard
-#define LED_A 16
-#define LED_B 2
+#define LED 16
+#define LED_ON HIGH  // Reverse these if you use in NodeMCU dev module. 
+#define LED_OFF LOW
 
 #define BUTTON PIN_D5     // Push button for starting portal mode.
 #define APTIMEOUT 120000  // Portal timeout 2 minutes
@@ -117,10 +118,8 @@ void setup() {
     pinMode(RXP, INPUT);
     pinMode(TXP, OUTPUT);
     pinMode(BUTTON, INPUT_PULLUP);
-    pinMode(LED_A, OUTPUT);
-    pinMode(LED_B, OUTPUT);
-    digitalWrite(LED_A,HIGH);
-    digitalWrite(LED_B,HIGH);
+    pinMode(LED, OUTPUT);
+    digitalWrite(LED,LED_OFF);
     
     Serial.begin(115200);
     Serial.print("\n\nESP8266 Wattson - OH2MP 2020\n\n");
@@ -147,9 +146,9 @@ void loop() {
     if (portal_timer > 0) {
         // Blink LED when portal is on
         if (millis() % 1000 < 500) {
-            digitalWrite(LED_B,LOW);
+            digitalWrite(LED,LED_ON);
         } else {
-            digitalWrite(LED_B,HIGH);
+            digitalWrite(LED,LED_OFF);
         }
         server.handleClient();
         if (millis() - portal_timer > APTIMEOUT) {
@@ -214,7 +213,7 @@ void handle_data() {
             if (WiFiMulti.run() == WL_CONNECTED) {
                 char json[32];  // This is enough space here
                 char topic[128];
-                digitalWrite(LED_A,LOW);
+                digitalWrite(LED,LED_ON);
                 // We send in milliwatts.
                 // See: https://github.com/oh2mp/esp32_ble2mqtt/blob/main/DATAFORMATS.md
                 //      TAG_WATTSON = 8
@@ -225,7 +224,7 @@ void handle_data() {
                 } else {
                     Serial.printf("Failed to connect MQTT broker, state=%d\n",mqttclient.state());
                 }
-                digitalWrite(LED_A,HIGH);
+                digitalWrite(LED,LED_OFF);
             } else {
                 Serial.printf("Failed to connect WiFi, status=%d\n", WiFi.status());
             }

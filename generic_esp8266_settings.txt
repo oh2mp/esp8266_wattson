@@ -1,0 +1,8 @@
+This is for generic module, not "NodeMCU"
+
+Board: Generic ESP8266 Module
+Flash Mode: DIO
+Flash Size: 4M (3M Spiffs)
+Reset Method: ck
+Flash Frequency: 40MHz
+Upload Speed: 115200
