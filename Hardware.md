@@ -39,3 +39,7 @@ the right side of the case. The buck converter and ESP are mounted just with two
 
 ![wattson_and_esp_small.jpg](images/wattson_and_esp_small.jpg)
 
+Here is a schematic if you use a generic ESP12 module.
+
+![esp8266_wattson_schema.jpg](images/esp8266_wattson_schema.jpg)
+
