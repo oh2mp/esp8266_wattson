@@ -5,7 +5,6 @@ internal 3.3V TTL serial line. To connect the ESP8266 to Wattson's internal seri
 points and other needed modifications are in the photo below.
 
 ![wattson_board_under2_small.jpg](images/wattson_board_under2_small.jpg)
-![esp8266_wattson_schema.jpg](images/esp8266_wattson_schema.jpg)
 
 - Connect ESP8266:s GPIO12 to the point marked as TX.
 - Connect ESP8266:s GPIO13 to the point marked as RX.
@@ -23,8 +22,7 @@ Connect also a push button between ESP's ground and GPIO14. It starts the portal
 connect an optional LED to GPIO16. It flashes always when a MQTT packet is sent. In portal mode it's 
 blinking.
 
-The internet is full of documentation how to make ESP8266 connections like needed pullup resistors,
-programming circuit etc. so I will not repeat that information here.
+![esp8266_wattson_schema.jpg](images/esp8266_wattson_schema.jpg)
 
 ----------
 
