@@ -5,6 +5,7 @@ internal 3.3V TTL serial line. To connect the ESP8266 to Wattson's internal seri
 points and other needed modifications are in the photo below.
 
 ![wattson_board_under2_small.jpg](images/wattson_board_under2_small.jpg)
+![esp8266_wattson_schema.jpg](images/esp8266_wattson_schema.jpg)
 
 - Connect ESP8266:s GPIO12 to the point marked as TX.
 - Connect ESP8266:s GPIO13 to the point marked as RX.
@@ -39,7 +40,4 @@ the right side of the case. The buck converter and ESP are mounted just with two
 
 ![wattson_and_esp_small.jpg](images/wattson_and_esp_small.jpg)
 
-Here is a schematic if you use a generic ESP12 module.
-
-![esp8266_wattson_schema.jpg](images/esp8266_wattson_schema.jpg)
 
