@@ -6,7 +6,8 @@ __ESP8266 based MQTT gateway for DIY Kyoto Wattson__
 
 [DIY Kyoto Wattson](http://www.diykyoto.com/uk/aboutus/wattson-classic) is a wireless three phase Electricity 
 monitor that came to the market about 2010. The manufacturer did not provide other software than "Holmes" for 
-Windows. I reverse engineered the [serial protocol](wattson_serial_protocol.txt) in 2011 and wrote a 
+Windows. I reverse engineered the [serial protocol](wattson_serial_protocol.txt) in 2011 by eavesdropping
+the serial traffic from the USB. Then I wrote a 
 [Linux daemon](https://pikarinen.com/rrdwattsond/) for it. The daemon worked well all these years 
 but I got an idea that it should use just ESP8266 and MQTT. The graph could be drawn by Grafana.
 
@@ -47,7 +48,7 @@ up your board or try to make a denial of service using eg. buffer overflows, fee
 
 ### Sample screenshots from the portal
 
-![Wifi config](s/wifi.jpg)
-![Other config](s/other.jpg)
+![Wifi config](images/screenshot-wifi.jpg)
+![Other config](images/screenshot-other.jpg)
 
 ------
