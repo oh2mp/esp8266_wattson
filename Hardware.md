@@ -7,7 +7,7 @@ points and other needed modifications are in the photo below.
 ![wattson_board_under2_small.jpg](images/wattson_board_under2_small.jpg)
 
 - Connect ESP8266:s GPIO12 to the point marked as TX.
-- Connect ESP8266:s GPIO13 to the point marked as TX.
+- Connect ESP8266:s GPIO13 to the point marked as RX.
 
 Cut the lead near the point marked as USB TX. If you want to put eg. a toggle switch that you can choose
 between ESP and USB, connect it to switch between USB TX and ESP.
